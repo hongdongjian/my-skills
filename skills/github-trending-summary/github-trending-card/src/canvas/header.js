@@ -15,7 +15,7 @@ const drawHeaderBackground = (ctx, { canvasWidth }) => {
     x: CANVAS.PADDING_X,
     y: CANVAS.PADDING_TOP,
     width: canvasWidth - CANVAS.PADDING_X * 2,
-    height: 100,
+    height: 120,
     radius: CANVAS.CARD_BORDER_RADIUS,
     color: COLORS.BG_HEADER,
   });
@@ -30,7 +30,7 @@ const drawHeaderTitle = (ctx, { title }) => {
   ctx.fillStyle = COLORS.TEXT_TITLE;
   ctx.textAlign = 'left';
   ctx.textBaseline = 'top';
-  ctx.fillText(title, CANVAS.PADDING_X + 20, CANVAS.PADDING_TOP + 16);
+  ctx.fillText(title, CANVAS.PADDING_X + 24, CANVAS.PADDING_TOP + 18);
   ctx.restore();
 };
 
@@ -43,7 +43,7 @@ const drawHeaderSubtitle = (ctx, { date, subtitle }) => {
   ctx.fillStyle = COLORS.TEXT_GRAY;
   ctx.textAlign = 'left';
   ctx.textBaseline = 'top';
-  ctx.fillText(`${date} ${subtitle}`, CANVAS.PADDING_X + 20, CANVAS.PADDING_TOP + 62);
+  ctx.fillText(`${date} ${subtitle}`, CANVAS.PADDING_X + 24, CANVAS.PADDING_TOP + 74);
   ctx.restore();
 };
 
@@ -51,9 +51,9 @@ const drawHeaderSubtitle = (ctx, { date, subtitle }) => {
  * Draw the TOP N badge in the header's top-right.
  */
 const drawTopBadge = (ctx, { topN, canvasWidth }) => {
-  const badgeWidth = 100;
-  const badgeHeight = 48;
-  const headerBgHeight = 100;
+  const badgeWidth = 110;
+  const badgeHeight = 52;
+  const headerBgHeight = 120;
   // 上下居中于 header 背景
   const badgeY = CANVAS.PADDING_TOP + (headerBgHeight - badgeHeight) / 2;
   fillGradientBadge(ctx, {

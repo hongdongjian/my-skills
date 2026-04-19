@@ -12,19 +12,19 @@ const { getRankColor } = require('../utils/colors');
 // ──────────────────────────────────────────────
 
 const DETAIL = Object.freeze({
-  WIDTH: 900,
-  PREVIEW_HEIGHT: 378,   // OG image height
-  PADDING_X: 40,
-  PADDING_TOP: 32,
-  PADDING_BOTTOM: 40,
-  CONTENT_PADDING_X: 24,
-  CONTENT_PADDING_Y: 20,
-  INDENT_X: 36,          // paragraph indent in pixels (~4 spaces)
-  SECTION_GAP: 0,        // gap between preview and readme section
-  LINE_HEIGHT: 34,
-  MAX_LINES: 13,
-  BORDER_RADIUS: 14,
-  HEADER_HEIGHT: 72,     // project name + meta strip at top of readme section
+  WIDTH: 1080,
+  PREVIEW_HEIGHT: 454,
+  PADDING_X: 48,
+  PADDING_TOP: 36,
+  PADDING_BOTTOM: 48,
+  CONTENT_PADDING_X: 32,
+  CONTENT_PADDING_Y: 24,
+  INDENT_X: 44,
+  SECTION_GAP: 0,
+  LINE_HEIGHT: 44,
+  MAX_LINES: 11,
+  BORDER_RADIUS: 16,
+  HEADER_HEIGHT: 80,
 });
 
 /**
@@ -230,10 +230,10 @@ const drawReadmeSection = (ctx, project, { y, width, rankColor }) => {
   const sectionW = width;
   const innerX = DETAIL.CONTENT_PADDING_X;
   const innerW = sectionW - DETAIL.CONTENT_PADDING_X * 2;
-  const textFont = `22px "${FONT_FAMILY}"`;
+  const textFont = `28px "${FONT_FAMILY}"`;
 
   // ── meta strip: Language | Today stars | Total stars ──
-  const metaStripH = 64;
+  const metaStripH = 76;
   const metaY = y;
   ctx.save();
   ctx.fillStyle = COLORS.BG_HEADER;
@@ -252,7 +252,7 @@ const drawReadmeSection = (ctx, project, { y, width, rankColor }) => {
   ctx.restore();
 
   const metaCenterY = metaY + metaStripH / 2;
-  const metaFont = `bold 26px "${FONT_FAMILY}"`;
+  const metaFont = `bold 30px "${FONT_FAMILY}"`;
 
   // Project name (left)
   ctx.save();
@@ -273,7 +273,7 @@ const drawReadmeSection = (ctx, project, { y, width, rankColor }) => {
   ctx.restore();
 
   // ── readme text area ──
-  const textAreaY = y + 64 + DETAIL.CONTENT_PADDING_Y;
+  const textAreaY = y + 76 + DETAIL.CONTENT_PADDING_Y;
 
   ctx.save();
   ctx.font = textFont;
@@ -303,7 +303,7 @@ const drawReadmeSection = (ctx, project, { y, width, rankColor }) => {
 const computeDetailHeight = () =>
   DETAIL.PREVIEW_HEIGHT +
   DETAIL.SECTION_GAP +
-  64 +                          // meta strip (language / today / total)
+  76 +                          // meta strip
   DETAIL.CONTENT_PADDING_Y +
   DETAIL.MAX_LINES * DETAIL.LINE_HEIGHT +
   DETAIL.PADDING_BOTTOM;

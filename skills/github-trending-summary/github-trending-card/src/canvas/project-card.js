@@ -28,8 +28,8 @@ const drawCardBackground = (ctx, { x, y, width, height, rankColor }) => {
  * Draw the rank badge on the left side of the card.
  */
 const drawCardRankBadge = (ctx, { x, y, height, rank, rankColor }) => {
-  const badgeSize = 44;
-  const badgeX = x + 18;
+  const badgeSize = 50;
+  const badgeX = x + 20;
   const badgeY = y + (height - badgeSize) / 2 - 5;
 
   drawRankBadge(ctx, {
@@ -54,7 +54,7 @@ const drawProjectName = (ctx, { textX, y, name, maxWidth }) => {
   ctx.fillStyle = COLORS.TEXT_WHITE;
   ctx.textAlign = 'left';
   ctx.textBaseline = 'top';
-  ctx.fillText(truncateText(ctx, name, maxWidth), textX, y + 14);
+  ctx.fillText(truncateText(ctx, name, maxWidth), textX, y + 16);
   ctx.restore();
 };
 
@@ -67,7 +67,7 @@ const drawProjectDescription = (ctx, { textX, y, description, maxWidth }) => {
   ctx.fillStyle = COLORS.TEXT_DESC;
   ctx.textAlign = 'left';
   ctx.textBaseline = 'top';
-  ctx.fillText(truncateText(ctx, description, maxWidth), textX, y + 48);
+  ctx.fillText(truncateText(ctx, description, maxWidth), textX, y + 54);
   ctx.restore();
 };
 
@@ -107,7 +107,7 @@ const drawProjectMeta = (ctx, { textX, y, language, todayStars, totalStars, meta
   ctx.textAlign = 'left';
   ctx.textBaseline = 'top';
 
-  const metaY = y + 82;
+  const metaY = y + 96;
   const gap = 65;
   const todayX = textX + metaColumns.langColWidth + gap;
   const totalX = todayX + metaColumns.todayColWidth + gap;

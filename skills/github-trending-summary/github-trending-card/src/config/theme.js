@@ -7,16 +7,16 @@ const fs = require('fs');
 // ──────────────────────────────────────────────
 
 const CANVAS = Object.freeze({
-  WIDTH: 900,
-  HEADER_HEIGHT: 130,
-  CARD_HEIGHT: 130,
-  CARD_GAP: 14,
-  PADDING_X: 40,
-  PADDING_TOP: 30,
-  PADDING_BOTTOM: 40,
-  BORDER_RADIUS: 0,           // 7. 整个背景不需要圆角
-  CARD_BORDER_RADIUS: 14,
-  CARD_BORDER_WIDTH: 1,       // 3. 边框 1px
+  WIDTH: 1080,
+  HEADER_HEIGHT: 150,
+  CARD_HEIGHT: 150,
+  CARD_GAP: 16,
+  PADDING_X: 48,
+  PADDING_TOP: 36,
+  PADDING_BOTTOM: 48,
+  BORDER_RADIUS: 0,
+  CARD_BORDER_RADIUS: 16,
+  CARD_BORDER_WIDTH: 1,
 });
 
 const COLORS = Object.freeze({
@@ -67,13 +67,13 @@ const resolveFontPath = () => {
 const FONT_PATH = resolveFontPath();
 
 const FONTS = Object.freeze({
-  TITLE: `bold 36px "${FONT_FAMILY}"`,
-  SUBTITLE: `18px "${FONT_FAMILY}"`,
-  PROJECT_NAME: `bold 24px "${FONT_FAMILY}"`,
-  DESCRIPTION: `20px "${FONT_FAMILY}"`,    // 1. 描述字体再大些 (18→20)
-  META: `22px "${FONT_FAMILY}"`,           // 2. Language/Today/Total 字体再大些 (20→22)
-  BADGE_RANK: `bold 22px "${FONT_FAMILY}"`,
-  BADGE_TOP: `bold 25px "${FONT_FAMILY}"`, // 2. TOP 字体 25px
+  TITLE: `bold 42px "${FONT_FAMILY}"`,
+  SUBTITLE: `22px "${FONT_FAMILY}"`,
+  PROJECT_NAME: `bold 28px "${FONT_FAMILY}"`,
+  DESCRIPTION: `24px "${FONT_FAMILY}"`,
+  META: `26px "${FONT_FAMILY}"`,
+  BADGE_RANK: `bold 26px "${FONT_FAMILY}"`,
+  BADGE_TOP: `bold 28px "${FONT_FAMILY}"`,
 });
 
 module.exports = { CANVAS, COLORS, FONTS, FONT_FAMILY, FONT_PATH, FONT_CANDIDATES };
