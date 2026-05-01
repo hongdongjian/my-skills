@@ -44,7 +44,7 @@ class GitHubTrendingAnalyzer:
         self.api_session.headers.update(api_headers)
 
     def load_config(self) -> Dict[str, str]:
-        """加载配置文件"""
+        """加载配置：config.env 文件 < 环境变量"""
         config = {}
         config_file = os.path.join(os.path.dirname(__file__), 'config.env')
 
@@ -61,6 +61,12 @@ class GitHubTrendingAnalyzer:
                         # 移除引号
                         value = value.strip('"').strip("'")
                         config[key.strip()] = value
+
+        # 环境变量优先级高于 config.env
+        for key in ('GITHUB_API_TOKEN', 'DEFAULT_LANGUAGE', 'DEFAULT_LIMIT'):
+            env_val = os.environ.get(key)
+            if env_val is not None:
+                config[key] = env_val
 
         return config
 
